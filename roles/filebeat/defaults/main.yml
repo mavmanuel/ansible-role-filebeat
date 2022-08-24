@@ -20,19 +20,19 @@ filebeat_inputs:
 
 filebeat_output_elasticsearch_enabled: false
 filebeat_output_elasticsearch_hosts:
-  - "https://nulogs-dev.natinst.com:9200"
+  - "https://elasticsearch.natinst.com:9200"
 #filebeat_output_elasticsearch_protocol: https
 #filebeat_output_elasticsearch_username: ""
 #filebeat_output_elasticsearch_password: ""
 
 filebeat_output_logstash_enabled: true
 filebeat_output_logstash_hosts:
-  - "pliable1.natinst.com:5096"
-  - "pliable2.natinst.com:5096"
-  - "pliable3.natinst.com:5096"
-  - "pliable4.natinst.com:5096"
-  - "pliable5.natinst.com:5096"
-  - "pliable6.natinst.com:5096"
+  - "ductile1.natinst.com:5096"
+  - "ductile2.natinst.com:5096"
+  - "ductile3.natinst.com:5096"
+    #  - "ductile4.natinst.com:5096"
+    #  - "ductile5.natinst.com:5096"
+    #  - "ductile6.natinst.com:5096"
 
 filebeat_enable_logging: true
 filebeat_log_level: info
