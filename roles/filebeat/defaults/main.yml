@@ -1,0 +1,50 @@
+---
+filebeat_version: 7.x
+filebeat_package: filebeat
+filebeat_package_state: present
+
+filebeat_create_config: true
+filebeat_template: "filebeat.yml.j2"
+
+filebeat_inputs:
+  - type: log
+    tags: ["caas", "prem-uat", "rke"]
+    enabled: true
+    symlinks: true
+    paths:
+      - "/var/lib/rancher/rke/log/*.log"
+  - type: journald
+    tags: ["caas", "prem-uat", "journald"]
+    enabled: true
+    id: everything
+
+filebeat_output_elasticsearch_enabled: false
+filebeat_output_elasticsearch_hosts:
+  - "https://nulogs-dev.natinst.com:9200"
+#filebeat_output_elasticsearch_protocol: https
+#filebeat_output_elasticsearch_username: ""
+#filebeat_output_elasticsearch_password: ""
+
+filebeat_output_logstash_enabled: true
+filebeat_output_logstash_hosts:
+  - "pliable1.natinst.com:5096"
+  - "pliable2.natinst.com:5096"
+  - "pliable3.natinst.com:5096"
+  - "pliable4.natinst.com:5096"
+  - "pliable5.natinst.com:5096"
+  - "pliable6.natinst.com:5096"
+
+filebeat_enable_logging: true
+filebeat_log_level: info
+filebeat_log_dir: /var/log/filebeat
+filebeat_log_filename: filebeat.log
+
+filebeat_ssl_dir: /etc/pki/logstash
+filebeat_ssl_certificate_file: ""
+filebeat_ssl_key_file: ""
+filebeat_ssl_insecure: "false"
+
+filebeat_elastic_cloud_enabled: false
+filebeat_elastic_cloud_id: ""
+filebeat_elastic_cloud_username: ""
+filebeat_elastic_cloud_password: ""

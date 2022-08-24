@@ -1,0 +1,10 @@
+
+- name: Install and Configure Filebeat
+  hosts: localhost
+
+  roles:
+    - role: filebeat
+      when: ansible_os_family == 'RedHat'
+#    become: yes
+#    vars:
+#      user_name: rancher_user
