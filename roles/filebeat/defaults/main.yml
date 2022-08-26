@@ -8,13 +8,13 @@ filebeat_template: "filebeat.yml.j2"
 
 filebeat_inputs:
   - type: log
-    tags: ["caas", "prem-uat", "rke"]
+    tags: ["caas", "{{ cluster }}", "rke"]
     enabled: true
     symlinks: true
     paths:
       - "/var/lib/rancher/rke/log/*.log"
   - type: journald
-    tags: ["caas", "prem-uat", "journald"]
+    tags: ["caas", "{{ cluster }}", "journald"]
     enabled: true
     id: everything
 
