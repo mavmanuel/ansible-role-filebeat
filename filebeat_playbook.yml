@@ -1,7 +1,7 @@
 
 - name: Install and Configure Filebeat
-  hosts: all
-  connection: local
+  hosts: local
+#  connection: local
 
   roles:
     - role: filebeat
