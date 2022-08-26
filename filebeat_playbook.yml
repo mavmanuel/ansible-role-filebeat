@@ -1,11 +1,9 @@
 
 - name: Install and Configure Filebeat
   hosts: local
-#  connection: local
+  connection: local
+  become: yes
 
   roles:
     - role: filebeat
       when: ansible_os_family == 'Debian'
-#    become: yes
-#    vars:
-#      user_name: rancher_user
